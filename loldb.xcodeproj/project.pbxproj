@@ -1,0 +1,429 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		49D51FBB149608E800BAA5AD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49D51FBA149608E800BAA5AD /* UIKit.framework */; };
+		49D51FBD149608E800BAA5AD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49D51FBC149608E800BAA5AD /* Foundation.framework */; };
+		49D51FBF149608E800BAA5AD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49D51FBE149608E800BAA5AD /* CoreGraphics.framework */; };
+		49D51FC5149608E800BAA5AD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 49D51FC3149608E800BAA5AD /* InfoPlist.strings */; };
+		49D51FC7149608E800BAA5AD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D51FC6149608E800BAA5AD /* main.m */; };
+		49D51FCB149608E800BAA5AD /* LOLAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D51FCA149608E800BAA5AD /* LOLAppDelegate.m */; };
+		49D51FD3149608E800BAA5AD /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49D51FD2149608E800BAA5AD /* SenTestingKit.framework */; };
+		49D51FD4149608E800BAA5AD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49D51FBA149608E800BAA5AD /* UIKit.framework */; };
+		49D51FD5149608E800BAA5AD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49D51FBC149608E800BAA5AD /* Foundation.framework */; };
+		49D51FDD149608E800BAA5AD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 49D51FDB149608E800BAA5AD /* InfoPlist.strings */; };
+		49D51FE0149608E800BAA5AD /* loldbTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D51FDF149608E800BAA5AD /* loldbTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		49D51FD6149608E800BAA5AD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 49D51FAD149608E800BAA5AD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 49D51FB5149608E800BAA5AD;
+			remoteInfo = loldb;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		49D51FB6149608E800BAA5AD /* loldb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = loldb.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		49D51FBA149608E800BAA5AD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		49D51FBC149608E800BAA5AD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		49D51FBE149608E800BAA5AD /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		49D51FC2149608E800BAA5AD /* loldb-Info.plist */ = {isa = PBXFileReference; path = "loldb-Info.plist"; sourceTree = "<group>"; };
+		49D51FC4149608E800BAA5AD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		49D51FC6149608E800BAA5AD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		49D51FC8149608E800BAA5AD /* loldb-Prefix.pch */ = {isa = PBXFileReference; path = "loldb-Prefix.pch"; sourceTree = "<group>"; };
+		49D51FC9149608E800BAA5AD /* LOLAppDelegate.h */ = {isa = PBXFileReference; path = LOLAppDelegate.h; sourceTree = "<group>"; };
+		49D51FCA149608E800BAA5AD /* LOLAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LOLAppDelegate.m; sourceTree = "<group>"; };
+		49D51FD1149608E800BAA5AD /* loldbTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = loldbTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		49D51FD2149608E800BAA5AD /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		49D51FDA149608E800BAA5AD /* loldbTests-Info.plist */ = {isa = PBXFileReference; path = "loldbTests-Info.plist"; sourceTree = "<group>"; };
+		49D51FDC149608E800BAA5AD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		49D51FDE149608E800BAA5AD /* loldbTests.h */ = {isa = PBXFileReference; path = loldbTests.h; sourceTree = "<group>"; };
+		49D51FDF149608E800BAA5AD /* loldbTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = loldbTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		49D51FB3149608E800BAA5AD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49D51FBB149608E800BAA5AD /* UIKit.framework in Frameworks */,
+				49D51FBD149608E800BAA5AD /* Foundation.framework in Frameworks */,
+				49D51FBF149608E800BAA5AD /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		49D51FCD149608E800BAA5AD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49D51FD3149608E800BAA5AD /* SenTestingKit.framework in Frameworks */,
+				49D51FD4149608E800BAA5AD /* UIKit.framework in Frameworks */,
+				49D51FD5149608E800BAA5AD /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		49D51FAB149608E800BAA5AD = {
+			isa = PBXGroup;
+			children = (
+				49D51FC0149608E800BAA5AD /* loldb */,
+				49D51FD8149608E800BAA5AD /* loldbTests */,
+				49D51FB9149608E800BAA5AD /* Frameworks */,
+				49D51FB7149608E800BAA5AD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		49D51FB7149608E800BAA5AD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				49D51FB6149608E800BAA5AD /* loldb.app */,
+				49D51FD1149608E800BAA5AD /* loldbTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		49D51FB9149608E800BAA5AD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				49D51FBA149608E800BAA5AD /* UIKit.framework */,
+				49D51FBC149608E800BAA5AD /* Foundation.framework */,
+				49D51FBE149608E800BAA5AD /* CoreGraphics.framework */,
+				49D51FD2149608E800BAA5AD /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		49D51FC0149608E800BAA5AD /* loldb */ = {
+			isa = PBXGroup;
+			children = (
+				49D51FC9149608E800BAA5AD /* LOLAppDelegate.h */,
+				49D51FCA149608E800BAA5AD /* LOLAppDelegate.m */,
+				49D51FC1149608E800BAA5AD /* Supporting Files */,
+			);
+			path = loldb;
+			sourceTree = "<group>";
+		};
+		49D51FC1149608E800BAA5AD /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				49D51FC2149608E800BAA5AD /* loldb-Info.plist */,
+				49D51FC3149608E800BAA5AD /* InfoPlist.strings */,
+				49D51FC6149608E800BAA5AD /* main.m */,
+				49D51FC8149608E800BAA5AD /* loldb-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		49D51FD8149608E800BAA5AD /* loldbTests */ = {
+			isa = PBXGroup;
+			children = (
+				49D51FDE149608E800BAA5AD /* loldbTests.h */,
+				49D51FDF149608E800BAA5AD /* loldbTests.m */,
+				49D51FD9149608E800BAA5AD /* Supporting Files */,
+			);
+			path = loldbTests;
+			sourceTree = "<group>";
+		};
+		49D51FD9149608E800BAA5AD /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				49D51FDA149608E800BAA5AD /* loldbTests-Info.plist */,
+				49D51FDB149608E800BAA5AD /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		49D51FB5149608E800BAA5AD /* loldb */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 49D51FE3149608E800BAA5AD /* Build configuration list for PBXNativeTarget "loldb" */;
+			buildPhases = (
+				49D51FB2149608E800BAA5AD /* Sources */,
+				49D51FB3149608E800BAA5AD /* Frameworks */,
+				49D51FB4149608E800BAA5AD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = loldb;
+			productName = loldb;
+			productReference = 49D51FB6149608E800BAA5AD /* loldb.app */;
+			productType = "com.apple.product-type.application";
+		};
+		49D51FD0149608E800BAA5AD /* loldbTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 49D51FE6149608E800BAA5AD /* Build configuration list for PBXNativeTarget "loldbTests" */;
+			buildPhases = (
+				49D51FCC149608E800BAA5AD /* Sources */,
+				49D51FCD149608E800BAA5AD /* Frameworks */,
+				49D51FCE149608E800BAA5AD /* Resources */,
+				49D51FCF149608E800BAA5AD /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				49D51FD7149608E800BAA5AD /* PBXTargetDependency */,
+			);
+			name = loldbTests;
+			productName = loldbTests;
+			productReference = 49D51FD1149608E800BAA5AD /* loldbTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		49D51FAD149608E800BAA5AD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = Darknoon;
+			};
+			buildConfigurationList = 49D51FB0149608E800BAA5AD /* Build configuration list for PBXProject "loldb" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 49D51FAB149608E800BAA5AD;
+			productRefGroup = 49D51FB7149608E800BAA5AD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				49D51FB5149608E800BAA5AD /* loldb */,
+				49D51FD0149608E800BAA5AD /* loldbTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		49D51FB4149608E800BAA5AD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49D51FC5149608E800BAA5AD /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		49D51FCE149608E800BAA5AD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49D51FDD149608E800BAA5AD /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		49D51FCF149608E800BAA5AD /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		49D51FB2149608E800BAA5AD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49D51FC7149608E800BAA5AD /* main.m in Sources */,
+				49D51FCB149608E800BAA5AD /* LOLAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		49D51FCC149608E800BAA5AD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49D51FE0149608E800BAA5AD /* loldbTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		49D51FD7149608E800BAA5AD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 49D51FB5149608E800BAA5AD /* loldb */;
+			targetProxy = 49D51FD6149608E800BAA5AD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		49D51FC3149608E800BAA5AD /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				49D51FC4149608E800BAA5AD /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		49D51FDB149608E800BAA5AD /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				49D51FDC149608E800BAA5AD /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		49D51FE1149608E800BAA5AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		49D51FE2149608E800BAA5AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		49D51FE4149608E800BAA5AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "loldb/loldb-Prefix.pch";
+				INFOPLIST_FILE = "loldb/loldb-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		49D51FE5149608E800BAA5AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "loldb/loldb-Prefix.pch";
+				INFOPLIST_FILE = "loldb/loldb-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		49D51FE7149608E800BAA5AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/loldb.app/loldb";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "loldb/loldb-Prefix.pch";
+				INFOPLIST_FILE = "loldbTests/loldbTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		49D51FE8149608E800BAA5AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/loldb.app/loldb";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "loldb/loldb-Prefix.pch";
+				INFOPLIST_FILE = "loldbTests/loldbTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		49D51FB0149608E800BAA5AD /* Build configuration list for PBXProject "loldb" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				49D51FE1149608E800BAA5AD /* Debug */,
+				49D51FE2149608E800BAA5AD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		49D51FE3149608E800BAA5AD /* Build configuration list for PBXNativeTarget "loldb" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				49D51FE4149608E800BAA5AD /* Debug */,
+				49D51FE5149608E800BAA5AD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		49D51FE6149608E800BAA5AD /* Build configuration list for PBXNativeTarget "loldbTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				49D51FE7149608E800BAA5AD /* Debug */,
+				49D51FE8149608E800BAA5AD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 49D51FAD149608E800BAA5AD /* Project object */;
+}
