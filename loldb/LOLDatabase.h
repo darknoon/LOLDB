@@ -17,16 +17,16 @@
 
 @protocol LOLDatabaseAccessor <NSObject>
 
-//TODO: Thread-safety
-- (NSData *)dataForKey:(NSString *)key;
-- (void)setData:(NSData *)data forKey:(NSString *)key;
+//Uses JSON to serialize and deserialize from the database
+- (NSDictionary *)dictionaryForKey:(NSString *)key;
+- (void)setDictionary:(NSDictionary *)dict forKey:(NSString *)key;
 
 @end
 
 @interface LOLDatabase : NSObject
 
-- (id)initWithPath:(NSString *)inPathe;
+- (id)initWithPath:(NSString *)path;
 
-- (void)accessWithBlock:(void (^)(id <LOLDatabaseAccessor>))block;
+- (void)accessCollection:(NSString *)collection withBlock:(void (^)(id <LOLDatabaseAccessor>accessor))block;
 
 @end

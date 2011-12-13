@@ -20,15 +20,15 @@
 	sqlite3 *db;
 }
 
-- (id)initWithPath:(NSString *)inPath;
+- (id)initWithPath:(NSString *)path;
 {
 	self = [super init];
 	if (!self) return nil;
 	
-	int status = sqlite3_open([inPath UTF8String], &db);
+	int status = sqlite3_open([path UTF8String], &db);
 	
 	if (status != SQLITE_OK) {
-		NSLog(@"Couldn't open database: %@", inPath);
+		NSLog(@"Couldn't open database: %@", path);
 		return nil;
 	}
 	
@@ -46,9 +46,9 @@
     sqlite3_close(db);
 }
 
-- (void)accessWithBlock:(void (^)(id <LOLDatabaseAccessor>))block;
+- (void)accessCollection:(NSString *)collection withBlock:(void (^)(id <LOLDatabaseAccessor>))block;
 {
-	_LOLDatabaseAccessor *a = [[_LOLDatabaseAccessor alloc] initWithDatabase:self collection:@"shit"];
+	_LOLDatabaseAccessor *a = [[_LOLDatabaseAccessor alloc] initWithDatabase:self collection:collection];
 	block(a);
 	[a done];
 }
@@ -113,10 +113,6 @@
 	}
 }
 
-- (void)dealloc {
-	
-}
-
 - (NSData *)dataForKey:(NSString *)key;
 {
 	sqlite3_bind_text(getByKeyStatement, 1, [key UTF8String], -1, SQLITE_TRANSIENT);
@@ -147,6 +143,23 @@
 	sqlite3_reset(setByKeyStatement);
 }
 
+- (NSDictionary *)dictionaryForKey:(NSString *)key;
+{
+	NSData *data = [self dataForKey:key];
+	return data ? [NSJSONSerialization JSONObjectWithData:data options:0 error:nil] : nil;	
+}
+
+- (void)setDictionary:(NSDictionary *)dict forKey:(NSString *)key;
+{
+	if (dict) {
+		NSData *data = [NSJSONSerialization dataWithJSONObject:dict options:0 error:nil];
+		if (data) {
+			[self setData:data forKey:key];
+			return;
+		}
+	}
+	[self setData:nil forKey:key];
+}
 
 @end
 
