@@ -8,6 +8,8 @@
 
 #import "LOLAppDelegate.h"
 
+#import "LOLDatabase.h"
+
 @implementation LOLAppDelegate
 
 @synthesize window = _window;
@@ -18,6 +20,27 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+	
+	NSString *cacheName = @"somestuff.lol";
+	NSString *path = [[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:cacheName];
+	
+	LOLDatabase *db = [[LOLDatabase alloc] initWithPath:path];
+	__block NSData *buttonsData = nil;
+	[db accessWithBlock:^(id<LOLDatabaseAccessor> accessor) {
+		buttonsData = [accessor dataForKey:@"fuckbuttons"];
+	}];
+	id buttonsDocument = buttonsData ? [NSJSONSerialization JSONObjectWithData:buttonsData options:0 error:nil] : nil;
+
+	NSLog(@"Current buttons: %@", buttonsDocument);
+	
+	NSDictionary *whatItShouldBe = [[NSDictionary alloc] initWithObjectsAndKeys:@"ladida", @"whatever", [NSNumber numberWithDouble:CFAbsoluteTimeGetCurrent()], @"somenumber", nil];
+	
+	NSData *newdata = [NSJSONSerialization dataWithJSONObject:whatItShouldBe options:0 error:nil];
+	[db accessWithBlock:^(id<LOLDatabaseAccessor> accessor) {
+		[accessor setData:newdata forKey:@"fuckbuttons"];
+	}];
+
+	
     return YES;
 }
 
