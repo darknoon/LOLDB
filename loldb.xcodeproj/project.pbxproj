@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		496F6E36149DEE1200FD050F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 496F6E2D149DEE1200FD050F /* InfoPlist.strings */; };
+		496F6E37149DEE1200FD050F /* LOLAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 496F6E30149DEE1200FD050F /* LOLAppDelegate.m */; };
+		496F6E38149DEE1200FD050F /* loldb-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 496F6E31149DEE1200FD050F /* loldb-Info.plist */; };
+		496F6E39149DEE1200FD050F /* LOLTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 496F6E34149DEE1200FD050F /* LOLTableViewController.m */; };
+		496F6E3A149DEE1200FD050F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 496F6E35149DEE1200FD050F /* main.m */; };
 		49D51FBB149608E800BAA5AD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49D51FBA149608E800BAA5AD /* UIKit.framework */; };
 		49D51FBD149608E800BAA5AD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49D51FBC149608E800BAA5AD /* Foundation.framework */; };
 		49D51FBF149608E800BAA5AD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49D51FBE149608E800BAA5AD /* CoreGraphics.framework */; };
-		49D51FC5149608E800BAA5AD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 49D51FC3149608E800BAA5AD /* InfoPlist.strings */; };
-		49D51FC7149608E800BAA5AD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D51FC6149608E800BAA5AD /* main.m */; };
-		49D51FCB149608E800BAA5AD /* LOLAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D51FCA149608E800BAA5AD /* LOLAppDelegate.m */; };
 		49D51FD3149608E800BAA5AD /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49D51FD2149608E800BAA5AD /* SenTestingKit.framework */; };
 		49D51FD4149608E800BAA5AD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49D51FBA149608E800BAA5AD /* UIKit.framework */; };
 		49D51FD5149608E800BAA5AD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49D51FBC149608E800BAA5AD /* Foundation.framework */; };
@@ -20,7 +22,6 @@
 		49D51FE0149608E800BAA5AD /* loldbTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D51FDF149608E800BAA5AD /* loldbTests.m */; };
 		49D51FEB1496090600BAA5AD /* LOLDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D51FEA1496090600BAA5AD /* LOLDatabase.m */; };
 		49D51FED1496093500BAA5AD /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 49D51FEC1496093500BAA5AD /* libsqlite3.dylib */; };
-		49D51FF014960C4300BAA5AD /* LOLTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D51FEF14960C4300BAA5AD /* LOLTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,16 +35,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		496F6E2E149DEE1200FD050F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		496F6E2F149DEE1200FD050F /* LOLAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOLAppDelegate.h; sourceTree = "<group>"; };
+		496F6E30149DEE1200FD050F /* LOLAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOLAppDelegate.m; sourceTree = "<group>"; };
+		496F6E31149DEE1200FD050F /* loldb-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "loldb-Info.plist"; sourceTree = "<group>"; };
+		496F6E32149DEE1200FD050F /* loldb-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "loldb-Prefix.pch"; sourceTree = "<group>"; };
+		496F6E33149DEE1200FD050F /* LOLTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOLTableViewController.h; sourceTree = "<group>"; };
+		496F6E34149DEE1200FD050F /* LOLTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOLTableViewController.m; sourceTree = "<group>"; };
+		496F6E35149DEE1200FD050F /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		49D51FB6149608E800BAA5AD /* loldb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = loldb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49D51FBA149608E800BAA5AD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		49D51FBC149608E800BAA5AD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		49D51FBE149608E800BAA5AD /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		49D51FC2149608E800BAA5AD /* loldb-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "loldb-Info.plist"; sourceTree = "<group>"; };
-		49D51FC4149608E800BAA5AD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		49D51FC6149608E800BAA5AD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		49D51FC8149608E800BAA5AD /* loldb-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "loldb-Prefix.pch"; sourceTree = "<group>"; };
-		49D51FC9149608E800BAA5AD /* LOLAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LOLAppDelegate.h; sourceTree = "<group>"; };
-		49D51FCA149608E800BAA5AD /* LOLAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LOLAppDelegate.m; sourceTree = "<group>"; };
 		49D51FD1149608E800BAA5AD /* loldbTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = loldbTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		49D51FD2149608E800BAA5AD /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		49D51FDA149608E800BAA5AD /* loldbTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "loldbTests-Info.plist"; sourceTree = "<group>"; };
@@ -53,8 +56,6 @@
 		49D51FE91496090600BAA5AD /* LOLDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOLDatabase.h; sourceTree = "<group>"; };
 		49D51FEA1496090600BAA5AD /* LOLDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOLDatabase.m; sourceTree = "<group>"; };
 		49D51FEC1496093500BAA5AD /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
-		49D51FEE14960C4300BAA5AD /* LOLTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOLTableViewController.h; sourceTree = "<group>"; };
-		49D51FEF14960C4300BAA5AD /* LOLTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOLTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,9 +83,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		496F6E2C149DEE1200FD050F /* TestApp */ = {
+			isa = PBXGroup;
+			children = (
+				496F6E2D149DEE1200FD050F /* InfoPlist.strings */,
+				496F6E2F149DEE1200FD050F /* LOLAppDelegate.h */,
+				496F6E30149DEE1200FD050F /* LOLAppDelegate.m */,
+				496F6E31149DEE1200FD050F /* loldb-Info.plist */,
+				496F6E32149DEE1200FD050F /* loldb-Prefix.pch */,
+				496F6E33149DEE1200FD050F /* LOLTableViewController.h */,
+				496F6E34149DEE1200FD050F /* LOLTableViewController.m */,
+				496F6E35149DEE1200FD050F /* main.m */,
+			);
+			path = TestApp;
+			sourceTree = "<group>";
+		};
 		49D51FAB149608E800BAA5AD = {
 			isa = PBXGroup;
 			children = (
+				496F6E2C149DEE1200FD050F /* TestApp */,
 				49D51FC0149608E800BAA5AD /* loldb */,
 				49D51FD8149608E800BAA5AD /* loldbTests */,
 				49D51FB9149608E800BAA5AD /* Frameworks */,
@@ -116,26 +133,10 @@
 		49D51FC0149608E800BAA5AD /* loldb */ = {
 			isa = PBXGroup;
 			children = (
-				49D51FC9149608E800BAA5AD /* LOLAppDelegate.h */,
-				49D51FCA149608E800BAA5AD /* LOLAppDelegate.m */,
-				49D51FEE14960C4300BAA5AD /* LOLTableViewController.h */,
-				49D51FEF14960C4300BAA5AD /* LOLTableViewController.m */,
 				49D51FE91496090600BAA5AD /* LOLDatabase.h */,
 				49D51FEA1496090600BAA5AD /* LOLDatabase.m */,
-				49D51FC1149608E800BAA5AD /* Supporting Files */,
 			);
 			path = loldb;
-			sourceTree = "<group>";
-		};
-		49D51FC1149608E800BAA5AD /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				49D51FC2149608E800BAA5AD /* loldb-Info.plist */,
-				49D51FC3149608E800BAA5AD /* InfoPlist.strings */,
-				49D51FC6149608E800BAA5AD /* main.m */,
-				49D51FC8149608E800BAA5AD /* loldb-Prefix.pch */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		49D51FD8149608E800BAA5AD /* loldbTests */ = {
@@ -228,7 +229,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49D51FC5149608E800BAA5AD /* InfoPlist.strings in Resources */,
+				496F6E36149DEE1200FD050F /* InfoPlist.strings in Resources */,
+				496F6E38149DEE1200FD050F /* loldb-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,10 +265,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49D51FC7149608E800BAA5AD /* main.m in Sources */,
-				49D51FCB149608E800BAA5AD /* LOLAppDelegate.m in Sources */,
 				49D51FEB1496090600BAA5AD /* LOLDatabase.m in Sources */,
-				49D51FF014960C4300BAA5AD /* LOLTableViewController.m in Sources */,
+				496F6E37149DEE1200FD050F /* LOLAppDelegate.m in Sources */,
+				496F6E39149DEE1200FD050F /* LOLTableViewController.m in Sources */,
+				496F6E3A149DEE1200FD050F /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,10 +291,10 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		49D51FC3149608E800BAA5AD /* InfoPlist.strings */ = {
+		496F6E2D149DEE1200FD050F /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				49D51FC4149608E800BAA5AD /* en */,
+				496F6E2E149DEE1200FD050F /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -359,8 +361,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "loldb/loldb-Prefix.pch";
-				INFOPLIST_FILE = "loldb/loldb-Info.plist";
+				GCC_PREFIX_HEADER = "TestApp/loldb-Prefix.pch";
+				INFOPLIST_FILE = "TestApp/loldb-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -370,8 +372,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "loldb/loldb-Prefix.pch";
-				INFOPLIST_FILE = "loldb/loldb-Info.plist";
+				GCC_PREFIX_HEADER = "TestApp/loldb-Prefix.pch";
+				INFOPLIST_FILE = "TestApp/loldb-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -430,6 +432,7 @@
 				49D51FE5149608E800BAA5AD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		49D51FE6149608E800BAA5AD /* Build configuration list for PBXNativeTarget "loldbTests" */ = {
 			isa = XCConfigurationList;
@@ -438,6 +441,7 @@
 				49D51FE8149608E800BAA5AD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
