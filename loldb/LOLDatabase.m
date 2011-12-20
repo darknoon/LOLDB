@@ -121,7 +121,7 @@
 	[q release];
 #endif
 	
-	q = [[NSString alloc] initWithFormat:@"SELECT key,data FROM %@ ORDER BY key;", collection];
+	q = [[NSString alloc] initWithFormat:@"SELECT key,data FROM %@;", collection];
 	status = sqlite3_prepare_v2(_d->db, [q UTF8String], q.length+1, &enumerateStatement, NULL);
 	if (status != SQLITE_OK) {
 		NSLog(@"Error with enumerate query! %s", sqlite3_errmsg(_d->db));
@@ -210,6 +210,7 @@
 
 - (void)setDictionary:(NSDictionary *)dict forKey:(NSString *)key;
 {
+	NSLog(@"saving dict %@ for key: %@", dict, key);
 	if (dict) {
 		NSData *data = _d.serializer(dict);
 		if (data) {
@@ -239,20 +240,23 @@
 	if (!block) return;
 	NSData *fullData = nil;
 	int status = sqlite3_step(enumerateStatement);
+		
 	BOOL stop = NO;
 	while (!stop && status == SQLITE_ROW) {
 		NSString *key = [[NSString alloc] initWithUTF8String:(const char *)sqlite3_column_text(enumerateStatement, 0)];
 		
-		const void *dataPtr = sqlite3_column_blob(getByKeyStatement, 0);
-		size_t size = sqlite3_column_bytes(getByKeyStatement, 0);
+		const void *dataPtr = sqlite3_column_blob(enumerateStatement, 1);
+		size_t size = sqlite3_column_bytes(enumerateStatement, 1);
 		fullData = [[NSData alloc] initWithBytes:dataPtr length:size];
 		
 		NSDictionary *object = fullData ? _d.deserializer(fullData) : nil;	
 
 		block(key, object, &stop);
 #if !__has_feature(objc_arc)
-		[fullData autorelease];
+		[key release];
+		[fullData release];
 #endif
+		status = sqlite3_step(enumerateStatement);
 	}
 	sqlite3_reset(enumerateStatement);
 }
