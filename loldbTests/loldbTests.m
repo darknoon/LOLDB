@@ -23,7 +23,12 @@
 	[[NSFileManager defaultManager] removeItemAtPath:path error:NULL];
 	
     db = [[LOLDatabase alloc] initWithPath:path];
-    // Set-up code here.
+	db.serializer = ^(id object){
+		return [NSJSONSerialization dataWithJSONObject:object options:0 error:NULL];
+	};
+	db.deserializer = ^(NSData *data) {
+		return [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
+	};
 }
 
 - (void)tearDown

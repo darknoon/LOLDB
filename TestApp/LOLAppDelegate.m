@@ -21,8 +21,15 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
 	
-		
-    return YES;
+	LOLDatabase *db = [[LOLDatabase alloc] initWithPath:nil];
+	db.serializer = ^(id object){
+		return [NSJSONSerialization dataWithJSONObject:object options:0 error:NULL];
+	};
+	db.deserializer = ^(NSData *data) {
+		return [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
+	};
+	
+	return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

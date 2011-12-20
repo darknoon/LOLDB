@@ -19,6 +19,8 @@
 @public
 	sqlite3 *db;
 }
+@synthesize serializer;
+@synthesize deserializer;
 
 - (id)initWithPath:(NSString *)path;
 {
@@ -44,6 +46,14 @@
 
 - (void)dealloc {
     sqlite3_close(db);
+	
+	
+#if !__has_feature(objc_arc)
+	[serializer release];
+	[deserializer release];
+	[super dealloc];
+#endif
+
 }
 
 - (void)accessCollection:(NSString *)collection withBlock:(void (^)(id <LOLDatabaseAccessor>))block;
@@ -195,13 +205,13 @@
 - (NSDictionary *)dictionaryForKey:(NSString *)key;
 {
 	NSData *data = [self dataForKey:key];
-	return data ? [NSJSONSerialization JSONObjectWithData:data options:0 error:nil] : nil;	
+	return data ? _d.deserializer(data) : nil;	
 }
 
 - (void)setDictionary:(NSDictionary *)dict forKey:(NSString *)key;
 {
 	if (dict) {
-		NSData *data = [NSJSONSerialization dataWithJSONObject:dict options:0 error:nil];
+		NSData *data = _d.serializer(dict);
 		if (data) {
 			[self setData:data forKey:key];
 			return;
@@ -237,7 +247,7 @@
 		size_t size = sqlite3_column_bytes(getByKeyStatement, 0);
 		fullData = [[NSData alloc] initWithBytes:dataPtr length:size];
 		
-		NSDictionary *object = fullData ? [NSJSONSerialization JSONObjectWithData:fullData options:0 error:nil] : nil;	
+		NSDictionary *object = fullData ? _d.deserializer(fullData) : nil;	
 
 		block(key, object, &stop);
 #if !__has_feature(objc_arc)
