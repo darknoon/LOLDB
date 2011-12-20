@@ -388,7 +388,7 @@
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "loldb/loldb-Prefix.pch";
+				GCC_PREFIX_HEADER = "TestApp/loldb-Prefix.pch";
 				INFOPLIST_FILE = "loldbTests/loldbTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
@@ -405,7 +405,7 @@
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "loldb/loldb-Prefix.pch";
+				GCC_PREFIX_HEADER = "TestApp/loldb-Prefix.pch";
 				INFOPLIST_FILE = "loldbTests/loldbTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";

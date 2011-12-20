@@ -51,6 +51,9 @@
 	_LOLDatabaseAccessor *a = [[_LOLDatabaseAccessor alloc] initWithDatabase:self collection:collection];
 	block(a);
 	[a done];
+#if !__has_feature(objc_arc)
+	[a release];
+#endif
 }
 
 @end
@@ -61,6 +64,15 @@
 	LOLDatabase *_d;
 	sqlite3_stmt *getByKeyStatement;
 	sqlite3_stmt *setByKeyStatement;
+	sqlite3_stmt *removeByKeyStatement;
+	sqlite3_stmt *enumerateStatement;
+}
+
+- (void)dealloc;
+{
+#if !__has_feature(objc_arc)
+	[_collection release];
+#endif
 }
 
 - (id)initWithDatabase:(LOLDatabase *)db collection:(NSString *)collection;
@@ -84,6 +96,10 @@
 		NSLog(@"shit table failed to be created");
 		return nil;
 	}
+#if !__has_feature(objc_arc)
+	[q release];
+#endif
+
 	
 	q = [[NSString alloc] initWithFormat:@"SELECT data FROM %@ WHERE key = ? ;", collection];
 	status = sqlite3_prepare_v2(_d->db, [q UTF8String], q.length+1, &getByKeyStatement, NULL);
@@ -91,6 +107,19 @@
 		NSLog(@"Error with get query! %s", sqlite3_errmsg(_d->db));
 		return nil;
 	}
+#if !__has_feature(objc_arc)
+	[q release];
+#endif
+	
+	q = [[NSString alloc] initWithFormat:@"SELECT key,data FROM %@ ORDER BY key;", collection];
+	status = sqlite3_prepare_v2(_d->db, [q UTF8String], q.length+1, &enumerateStatement, NULL);
+	if (status != SQLITE_OK) {
+		NSLog(@"Error with enumerate query! %s", sqlite3_errmsg(_d->db));
+		return nil;
+	}
+#if !__has_feature(objc_arc)
+	[q release];
+#endif
     
 	q = [[NSString alloc] initWithFormat:@"INSERT OR REPLACE INTO %@ ('key', 'data') VALUES (?, ?);", collection];
 	status = sqlite3_prepare_v2(_d->db, [q UTF8String], q.length+1, &setByKeyStatement, NULL);
@@ -98,6 +127,20 @@
 		NSLog(@"Error with set query! %s", sqlite3_errmsg(_d->db));
 		return nil;
 	}
+#if !__has_feature(objc_arc)
+	[q release];
+#endif
+	
+	q = [[NSString alloc] initWithFormat:@"DELETE FROM %@ WHERE key = ? ;", collection];
+	status = sqlite3_prepare_v2(_d->db, [q UTF8String], q.length+1, &removeByKeyStatement, NULL);
+	if (status != SQLITE_OK) {
+		NSLog(@"Error with delete query! %s", sqlite3_errmsg(_d->db));
+		return nil;
+	}
+#if !__has_feature(objc_arc)
+	[q release];
+#endif
+
 	
     return self;
 }
@@ -106,6 +149,8 @@
 {
 	sqlite3_finalize(getByKeyStatement);
 	sqlite3_finalize(setByKeyStatement);
+	sqlite3_finalize(removeByKeyStatement);
+	sqlite3_finalize(enumerateStatement);
 
 	NSString *q = @"COMMIT TRANSACTION;";
 	if (sqlite3_exec(_d->db, [q UTF8String], NULL, NULL, NULL) != SQLITE_OK) {
@@ -127,7 +172,10 @@
 		NSLog(@"error getting by key: %s", sqlite3_errmsg(_d->db));
 	}
 	sqlite3_reset(getByKeyStatement);
-	
+
+#if !__has_feature(objc_arc)
+	[fullData autorelease];
+#endif
 	return fullData;
 }
 
@@ -140,6 +188,7 @@
 	if (status != SQLITE_DONE) {
 		NSLog(@"error setting by key %d: %s", status, sqlite3_errmsg(_d->db));
 	}
+	sqlite3_clear_bindings(setByKeyStatement);
 	sqlite3_reset(setByKeyStatement);
 }
 
@@ -159,6 +208,43 @@
 		}
 	}
 	[self setData:nil forKey:key];
+}
+
+- (void)removeDictionaryForKey:(NSString *)key;
+{
+	sqlite3_bind_text(removeByKeyStatement, 1, [key UTF8String], -1, SQLITE_TRANSIENT);
+	
+	int status = sqlite3_step(removeByKeyStatement);
+	if (status != SQLITE_DONE) {
+		//yay!
+		NSLog(@"Error removing dictionary for key %@ : %s", key, sqlite3_errmsg(_d->db));
+	}
+	
+	sqlite3_reset(removeByKeyStatement);
+
+}
+
+- (void)enumerateKeysAndObjectsUsingBlock:(void (^)(NSString *key, NSDictionary *object, BOOL *stop))block;
+{
+	if (!block) return;
+	NSData *fullData = nil;
+	int status = sqlite3_step(enumerateStatement);
+	BOOL stop = NO;
+	while (!stop && status == SQLITE_ROW) {
+		NSString *key = [[NSString alloc] initWithUTF8String:(const char *)sqlite3_column_text(enumerateStatement, 0)];
+		
+		const void *dataPtr = sqlite3_column_blob(getByKeyStatement, 0);
+		size_t size = sqlite3_column_bytes(getByKeyStatement, 0);
+		fullData = [[NSData alloc] initWithBytes:dataPtr length:size];
+		
+		NSDictionary *object = fullData ? [NSJSONSerialization JSONObjectWithData:fullData options:0 error:nil] : nil;	
+
+		block(key, object, &stop);
+#if !__has_feature(objc_arc)
+		[fullData autorelease];
+#endif
+	}
+	sqlite3_reset(enumerateStatement);
 }
 
 @end

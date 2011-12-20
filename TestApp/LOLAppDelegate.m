@@ -21,41 +21,6 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
 	
-	NSLog(@"Starting database operations");
-	NSLog(@"Reading");
-	
-	NSString *cacheName = @"somestuff.lol";
-	NSString *path = [[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:cacheName];
-	
-	LOLDatabase *db = [[LOLDatabase alloc] initWithPath:path];
-	__block NSDictionary *buttons = nil;
-	[db accessCollection:@"shit" withBlock:^(id<LOLDatabaseAccessor>accessor) {
-		//Do a bunch of unnecessary work for timing purposes
-		NSDictionary *blahTemp = nil;
-		for (int i=0; i<10000; i++) {
-			@autoreleasepool {
-				blahTemp = [accessor dictionaryForKey:[[NSString alloc] initWithFormat:@"fuckbuttons-%d", i]];
-			}
-		}
-		buttons = [accessor dictionaryForKey:@"fuckbuttons"];
-	}];
-	
-	NSLog(@"Writing");
-	
-	[db accessCollection:@"shit" withBlock:^(id<LOLDatabaseAccessor> accessor) {
-		NSDictionary *whatItShouldBe = [[NSDictionary alloc] initWithObjectsAndKeys:@"ladida", @"whatever", [NSNumber numberWithDouble:CFAbsoluteTimeGetCurrent()], @"somenumber", nil];
-		//An insert test
-		for (int i=0; i<10000; i++) {
-			@autoreleasepool {
-				[accessor setDictionary:whatItShouldBe forKey:[[NSString alloc] initWithFormat:@"fuckbuttons-%d", i]];
-				
-			}
-		}
-		
-		[accessor setDictionary:whatItShouldBe forKey:@"fuckbuttons"];
-	}];
-	
-	NSLog(@"Current buttons: %@", buttons);
 		
     return YES;
 }

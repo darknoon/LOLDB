@@ -20,6 +20,9 @@
 //Uses JSON to serialize and deserialize from the database
 - (NSDictionary *)dictionaryForKey:(NSString *)key;
 - (void)setDictionary:(NSDictionary *)dict forKey:(NSString *)key;
+- (void)removeDictionaryForKey:(NSString *)key;
+
+- (void)enumerateKeysAndObjectsUsingBlock:(void (^)(NSString *key, NSDictionary *object, BOOL *stop))block;
 
 @end
 
