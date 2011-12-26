@@ -101,10 +101,9 @@
 		NSLog(@"Couldn't begin a transaction!");
 	}
 	
-	q = [[NSString alloc] initWithFormat:@"CREATE TABLE IF NOT EXISTS %@ ('key' CHAR PRIMARY KEY  NOT NULL  UNIQUE, 'data' BLOB);", collection];
+	q = [[NSString alloc] initWithFormat:@"CREATE TABLE IF NOT EXISTS '%@' ('key' CHAR PRIMARY KEY  NOT NULL  UNIQUE, 'data' BLOB);", collection];
 	if (sqlite3_exec(_d->db, [q UTF8String], NULL, NULL, NULL) != SQLITE_OK) {
-		sqlite3_close(_d->db);
-		NSLog(@"shit table failed to be created");
+		NSLog(@"table failed to be created %s", sqlite3_errmsg(_d->db));
 		return nil;
 	}
 #if !__has_feature(objc_arc)
@@ -112,7 +111,7 @@
 #endif
 
 	
-	q = [[NSString alloc] initWithFormat:@"SELECT data FROM %@ WHERE key = ? ;", collection];
+	q = [[NSString alloc] initWithFormat:@"SELECT data FROM '%@' WHERE key = ? ;", collection];
 	status = sqlite3_prepare_v2(_d->db, [q UTF8String], q.length+1, &getByKeyStatement, NULL);
 	if (status != SQLITE_OK) {
 		NSLog(@"Error with get query! %s", sqlite3_errmsg(_d->db));
@@ -122,7 +121,7 @@
 	[q release];
 #endif
 	
-	q = [[NSString alloc] initWithFormat:@"SELECT key,data FROM %@;", collection];
+	q = [[NSString alloc] initWithFormat:@"SELECT key,data FROM '%@';", collection];
 	status = sqlite3_prepare_v2(_d->db, [q UTF8String], q.length+1, &enumerateStatement, NULL);
 	if (status != SQLITE_OK) {
 		NSLog(@"Error with enumerate query! %s", sqlite3_errmsg(_d->db));
@@ -132,7 +131,7 @@
 	[q release];
 #endif
     
-	q = [[NSString alloc] initWithFormat:@"INSERT OR REPLACE INTO %@ ('key', 'data') VALUES (?, ?);", collection];
+	q = [[NSString alloc] initWithFormat:@"INSERT OR REPLACE INTO '%@' ('key', 'data') VALUES (?, ?);", collection];
 	status = sqlite3_prepare_v2(_d->db, [q UTF8String], q.length+1, &setByKeyStatement, NULL);
 	if (status != SQLITE_OK) {
 		NSLog(@"Error with set query! %s", sqlite3_errmsg(_d->db));
@@ -142,7 +141,7 @@
 	[q release];
 #endif
 	
-	q = [[NSString alloc] initWithFormat:@"DELETE FROM %@ WHERE key = ? ;", collection];
+	q = [[NSString alloc] initWithFormat:@"DELETE FROM '%@' WHERE key = ? ;", collection];
 	status = sqlite3_prepare_v2(_d->db, [q UTF8String], q.length+1, &removeByKeyStatement, NULL);
 	if (status != SQLITE_OK) {
 		NSLog(@"Error with delete query! %s", sqlite3_errmsg(_d->db));
@@ -211,7 +210,6 @@
 
 - (void)setDictionary:(NSDictionary *)dict forKey:(NSString *)key;
 {
-	NSLog(@"saving dict %@ for key: %@", dict, key);
 	if (dict) {
 		NSData *data = _d.serializer(dict);
 		if (data) {
