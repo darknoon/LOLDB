@@ -82,6 +82,7 @@
 {
 #if !__has_feature(objc_arc)
 	[_collection release];
+	[super dealloc];
 #endif
 }
 
